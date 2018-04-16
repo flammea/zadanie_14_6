@@ -1,4 +1,4 @@
-var Counter1 = React.createClass({
+var Counter = React.createClass({
     getDefaultProps: function() {
         console.log('getDefaultProps - ustawiamy domyślne wartości propsów');
     },
@@ -28,9 +28,9 @@ var Counter1 = React.createClass({
     },
 
     render: function() {
-        console.log('render - komponent zwraca potrzebny do wyświetlenia ReactElement')
+        console.log('render - komponent zwraca potrzebny do wyświetlenia ReactElement');
         return React.createElement('div', {className: 'btn-box'},
-            React.createElement('span', {}, '#1 Licznik ' + this.state.counter),
+            React.createElement('span', {}, 'Licznik ' + this.state.counter),
             React.createElement('button', {className: 'btn-in', onClick: this.increment}, 'Increase '),
             React.createElement('button', {className: 'btn-de', onClick: this.decrement}, 'Decrease ')
         );
@@ -41,22 +41,24 @@ var Counter1 = React.createClass({
     },
 
     componentWillReceiveProps: function () {
-    console.log('componentWillReceiveProps - stosujemy, gdy komponent otrzyma nowe propsy')
+        console.log('componentWillReceiveProps - stosujemy, gdy komponent otrzyma nowe propsy')
     },
     
     shouldComponentUpdate: function () {
-      console.log('shouldComponentUpdate - stosujemy, gdy zależy nam na otymalizacji naszej aplikacji;  metoda pozwala sprawdzić czy trzeba jeszcze raz przerysować komponent')
+        console.log('shouldComponentUpdate - stosujemy, gdy zależy nam na otymalizacji naszej aplikacji;  metoda pozwala sprawdzić czy trzeba jeszcze raz przerysować komponent');
+        return true;
     },
+
     
     componentWillUpdate: function () {
-      console.log('componentWillUpdate - przygotowujemy się do aktualizacji komponentu')
+        console.log('componentWillUpdate - przygotowujemy się do aktualizacji komponentu')
     },
     
     componentDidUpdate: function () {
-      console.log('componentDidUpdate - wykonujemy np. jakieś manipulacje DOM')
+        console.log('componentDidUpdate - wykonujemy np. jakieś manipulacje DOM')
     },
     
     componentWillUnmount: function () {
-      console.log('componentWillUnmount - komponent jest usuwany z DOM np. odpinamy licznik')
+        console.log('componentWillUnmount - komponent jest usuwany z DOM np. odpinamy licznik')
     }
 });
